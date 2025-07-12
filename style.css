@@ -1,0 +1,226 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    line-height: 1.6;
+    font-size: 16px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Container */
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+}
+
+/* Header */
+.title {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 3rem;
+    color: #cccccc;
+    letter-spacing: 0.05em;
+}
+
+/* Countdown section */
+.countdown-section {
+    margin-top: 2rem;
+}
+
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Time units */
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+}
+
+.time-box {
+    background-color: #2a2a2a;
+    border: 2px solid #404040;
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+    margin-bottom: 1rem;
+    min-width: 120px;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.time-number {
+    font-size: 4rem;
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-align: center;
+    font-family: 'Inter', monospace;
+}
+
+.time-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Separators */
+.separator {
+    font-size: 3rem;
+    font-weight: 300;
+    color: #666666;
+    margin: 0 0.5rem;
+    align-self: flex-start;
+    margin-top: 2rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .countdown-display {
+        gap: 0.5rem;
+    }
+    
+    .time-unit {
+        min-width: 100px;
+    }
+    
+    .time-box {
+        min-width: 100px;
+        min-height: 100px;
+        padding: 1rem 0.5rem;
+    }
+    
+    .time-number {
+        font-size: 3rem;
+    }
+    
+    .time-label {
+        font-size: 0.875rem;
+    }
+    
+    .separator {
+        font-size: 2rem;
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 1.25rem;
+        line-height: 1.4;
+    }
+    
+    .subtitle {
+        font-size: 0.875rem;
+        line-height: 1.4;
+    }
+    
+    .countdown-display {
+        gap: 0.25rem;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .time-unit {
+        min-width: 90px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .time-box {
+        min-width: 90px;
+        min-height: 90px;
+        padding: 0.75rem 0.5rem;
+    }
+    
+    .time-number {
+        font-size: 2.5rem;
+    }
+    
+    .time-label {
+        font-size: 0.75rem;
+    }
+    
+    .separator {
+        display: none;
+    }
+}
+
+/* Hide weeks section when less than 7 days remain */
+.time-unit.hidden {
+    display: none;
+}
+
+.separator.hidden {
+    display: none;
+}
+
+/* Celebration message (for when countdown reaches zero) */
+.celebration {
+    display: none;
+    font-size: 3rem;
+    font-weight: 400;
+    color: #d4af37;
+    margin-top: 2rem;
+    animation: fadeIn 2s ease-in-out;
+    letter-spacing: 0.1em;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.celebration.show {
+    display: block;
+} 
